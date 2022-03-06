@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+  <title>Wordle</title>
+</head>
+<body>
+  <h1>Գուշակիր օրվա բառը</h1>
+
+  <div class="alert-container" data-alert-container></div>
+  <div data-guess-grid class="guess-grid">
+    <div class="tile"></div>
+    <div class="tile"></div>
+    <div class="tile"></div>
+    <div class="tile"></div>
+    <div class="tile"></div>
+    <div class="tile"></div>
+    <div class="tile"></div>
+    <div class="tile"></div>
+    <div class="tile"></div>
+    <div class="tile"></div>
+    <div class="tile"></div>
+    <div class="tile"></div>
+    <div class="tile"></div>
+    <div class="tile"></div>
+    <div class="tile"></div>
+    <div class="tile"></div>
+    <div class="tile"></div>
+    <div class="tile"></div>
+    <div class="tile"></div>
+    <div class="tile"></div>
+    <div class="tile"></div>
+    <div class="tile"></div>
+    <div class="tile"></div>
+    <div class="tile"></div>
+    <div class="tile"></div>
+    <div class="tile"></div>
+    <div class="tile"></div>
+    <div class="tile"></div>
+    <div class="tile"></div>
+    <div class="tile"></div>
+  </div>
+  <div data-keyboard id="keyboard"><div class="row"><button data-key="ճ">ճ</button><button data-key="ե">ե</button><button data-key="ր">ր</button><button data-key="տ">տ</button><button data-key="յ">յ</button><button data-key="ի">ի</button><button data-key="պ">պ</button><button data-key="ո">ո</button><button data-key="ւ">ւ</button></div><div class="row"><div class="spacer half"></div><button data-key="ա">ա</button><button data-key="ս">ս</button><button data-key="դ">դ</button><button data-key="ֆ">ֆ</button><button data-key="գ">գ</button><button data-key="հ">հ</button><button data-key="ձ">ձ</button><button data-key="կ">կ</button><button data-key="լ">լ</button><div class="spacer half"></div></div><div class="row"><button data-enter class="one-and-a-half" style="padding: 2px;">enter</button><button data-key="զ">զ</button><button data-key="խ">խ</button><button data-key="ծ">ծ</button><button data-key="վ">վ</button><button data-key="բ">բ</button><button data-key="ն">ն</button><button data-key="մ">մ</button><button data-deleter class="key large">
+    <svg xmlns="http://www.w3.org/2000/svg" data-deleter height="24" viewBox="0 0 24 24" width="24">
+      <path fill="var(--color-tone-1)" d="M22 3H7c-.69 0-1.23.35-1.59.88L0 12l5.41 8.11c.36.53.9.89 1.59.89h15c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H7.07L2.4 12l4.66-7H22v14zm-11.59-2L14 13.41 17.59 17 19 15.59 15.41 12 19 8.41 17.59 7 14 10.59 10.41 7 9 8.41 12.59 12 9 15.59z"></path>
+    </svg>
+  </button> <game-icon icon="backspace"></game-icon></button></div><div class="row"><div class="spacer half"></div><button data-key="չ">չ</button><button data-key="է">է</button><button data-key="ռ">ռ</button><button data-key="թ">թ</button><button data-key="օ">օ</button><button data-key="փ">փ</button><button data-key="ը">ը</button><button data-key="շ">շ</button><div class="spacer half"></div></div><div class="row"><div class="spacer half"></div><div class="spacer half"></div><button data-key="ջ">ջ</button><button data-key="ք">ք</button><button data-key="ղ">ղ</button><button data-key="ժ">ժ</button><button data-key="ց">ց</button><button data-key="և">և</button><div class="spacer half"></div><div class="spacer half"></div></div></div>
+
+
+ <!-- <div data-keyboard class="keyboard">
+    <button class="key" data-key="ա">ա</button>
+    <button class="key" data-key="բ">բ</button>
+    <button class="key" data-key="գ">գ</button>
+    <button class="key" data-key="դ">դ</button>
+    <button class="key" data-key="ե">ե</button>
+    <button class="key" data-key="զ">զ</button>
+    <button class="key" data-key="է">է</button>
+    <button class="key" data-key="ը">ը</button>
+    <button class="key" data-key="թ">թ</button>
+    <div class="space"></div>
+    <button class="key" data-key="ժ">ժ</button>
+    <button class="key" data-key="ի">ի</button>
+    <button class="key" data-key="լ">լ</button>
+    <button class="key" data-key="խ">խ</button>
+    <button class="key" data-key="ծ">ծ</button>
+    <button class="key" data-key="կ">կ</button>
+    <button class="key" data-key="հ">հ</button>
+    <button class="key" data-key="ձ">ձ</button>
+    <button class="key" data-key="ղ">ղ</button>
+    <div class="space"></div>
+    <button data-enter class="key large">Enter</button>
+    <button class="key" data-key="ճ">ճ</button>
+    <button class="key" data-key="մ">մ</button>
+    <button class="key" data-key="յ">յ</button>
+    <button class="key" data-key="ն">ն</button>
+    <button class="key" data-key="շ">շ</button>
+    <button class="key" data-key="ո">ո</button>
+    <button class="key" data-key="չ">չ</button>
+    <button class="key" data-key="պ">պ</button>
+    <div class="space"></div>
+    <button class="key" data-key="ջ">ջ</button>
+    <button class="key" data-key="ռ">ռ</button>
+    <button class="key" data-key="ս">ս</button>
+    <button class="key" data-key="վ">վ</button>
+    <button class="key" data-key="ո">ո</button>
+    <button class="key" data-key="տ">տ</button>
+    <button class="key" data-key="ր">ր</button>
+    <button class="key" data-key="ռ">ռ</button>
+    <button class="key" data-key="ց">ց</button>
+    <button class="key" data-key="ու">ու</button>
+    <button class="key" data-key="փ">փ</button>
+    <button class="key" data-key="ք">ք</button>
+    <div class="space"></div>
+    <button class="key" data-key="օ">օ</button>
+    <button class="key" data-key="ֆ">ֆ</button>
+  </div> -->
+</body>
+</html>
