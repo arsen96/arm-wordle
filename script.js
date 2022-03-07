@@ -106,7 +106,6 @@ function stopInteraction() {
 
 function handleMouseClick(e) {
   if (e.target.matches("[data-key]")) {
-    console.error("sdqsdsqd")
     pressKey(e.target.dataset.key,true)
     return
   }
@@ -140,6 +139,10 @@ function handleKeyPress(e) {
 }
 
  function pressKey(key,click = false) {
+
+  if (key === "Enter") {
+    return
+  }
   const keyConverter = converter(key);
   // translate.engine = "deepl";
   // translate.key = process.env.DEEPL_KEY;
