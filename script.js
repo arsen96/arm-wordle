@@ -106,7 +106,8 @@ function stopInteraction() {
 
 function handleMouseClick(e) {
   if (e.target.matches("[data-key]")) {
-    pressKey(e.target.dataset.key)
+    console.error("sdqsdsqd")
+    pressKey(e.target.dataset.key,true)
     return
   }
 
@@ -138,16 +139,17 @@ function handleKeyPress(e) {
   }
 }
 
-async function pressKey(key) {
-  const test = converter(key);
+ function pressKey(key,click = false) {
+  const keyConverter = converter(key);
   // translate.engine = "deepl";
   // translate.key = process.env.DEEPL_KEY;
   const activeTiles = getActiveTiles()
   if (activeTiles.length >= WORD_LENGTH) return
   const nextTile = guessGrid.querySelector(":not([data-letter])")
-
+  console.log("keyConverter", keyConverter)
+  console.log("click", click)
   nextTile.dataset.letter = key.toLowerCase()
-  nextTile.textContent = test
+  nextTile.textContent = click ? key  : keyConverter
   nextTile.dataset.state = "active"
 }
 
